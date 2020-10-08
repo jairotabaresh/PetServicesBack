@@ -27,9 +27,9 @@ public class Mascota {
 	@Column
 	private int edad;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "IdUsuario")
-//	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "idusuario")
+	private Usuario usuario;
 //	
 //	@OneToMany(mappedBy = "mascota")
 //	private List<Cita> citas;
@@ -72,6 +72,14 @@ public class Mascota {
 
 	public void setEdad(int edad) {
 		this.edad = edad;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 }

@@ -29,9 +29,9 @@ public class Usuario {
 	@Column
 	private String contrasena;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "IdRol")
-//	private Rol rol;
+	@ManyToOne
+	@JoinColumn(name = "idrol")
+	private Rol rol;
 	
 //	@OneToMany(mappedBy = "usuario")
 //	private List<Mascota> mascotas;
@@ -82,6 +82,14 @@ public class Usuario {
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
 
 }
