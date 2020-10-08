@@ -1,7 +1,6 @@
 package com.petservices.model;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,8 +19,8 @@ public class Rol {
 	@Column
 	private String nombre;
 	
-	@OneToMany(mappedBy = "rol")
-	private List<Usuario> usuarios;
+//	@OneToMany(mappedBy = "rol")
+//	private List<Usuario> usuarios;
 	
 	public int getId() {
 		return id;

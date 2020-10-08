@@ -27,12 +27,12 @@ public class Mascota {
 	@Column
 	private int edad;
 	
-	@ManyToOne
-	@JoinColumn(name = "IdUsuario")
-	private Usuario usuario;
-	
-	@OneToMany(mappedBy = "mascota")
-	private List<Cita> citas;
+//	@ManyToOne
+//	@JoinColumn(name = "IdUsuario")
+//	private Usuario usuario;
+//	
+//	@OneToMany(mappedBy = "mascota")
+//	private List<Cita> citas;
 
 	public int getId() {
 		return id;

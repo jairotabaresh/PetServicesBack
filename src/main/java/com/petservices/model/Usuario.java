@@ -29,12 +29,12 @@ public class Usuario {
 	@Column
 	private String contrasena;
 	
-	@ManyToOne
-	@JoinColumn(name = "IdRol")
-	private Rol rol;
+//	@ManyToOne
+//	@JoinColumn(name = "IdRol")
+//	private Rol rol;
 	
-	@OneToMany(mappedBy = "usuario")
-	private List<Mascota> mascotas;
+//	@OneToMany(mappedBy = "usuario")
+//	private List<Mascota> mascotas;
 
 	public int getId() {
 		return id;

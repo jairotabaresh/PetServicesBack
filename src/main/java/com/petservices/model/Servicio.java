@@ -20,8 +20,8 @@ public class Servicio {
 	@Column
 	private String nombre;
 	
-	@OneToMany(mappedBy = "servicio")
-	private List<Cita> citas;
+//	@OneToMany(mappedBy = "servicio")
+//	private List<Cita> citas;
 	
 	public int getId() {
 		return id;

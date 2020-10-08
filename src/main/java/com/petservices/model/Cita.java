@@ -26,15 +26,15 @@ public class Cita {
 	@Column
 	private String comentario;
 	
-	@ManyToOne
-	@JoinColumn(name = "IdMascota")
-	private Mascota mascota;
-	
-	@ManyToOne
-	@JoinColumn(name = "IdSevicio")
-	private Servicio servicio;
-	
-	@ManyToOne
-	@JoinColumn(name = "IdEstado")
-	private Estado estado;
+//	@ManyToOne
+//	@JoinColumn(name = "IdMascota")
+//	private Mascota mascota;
+//	
+//	@ManyToOne
+//	@JoinColumn(name = "IdSevicio")
+//	private Servicio servicio;
+//	
+//	@ManyToOne
+//	@JoinColumn(name = "IdEstado")
+//	private Estado estado;
 }

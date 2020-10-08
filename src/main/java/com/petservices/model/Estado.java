@@ -20,8 +20,8 @@ public class Estado {
 	@Column
 	private String nombre;
 	
-	@OneToMany(mappedBy = "estado")
-	private List<Cita> citas;
+//	@OneToMany(mappedBy = "estado")
+//	private List<Cita> citas;
 	
 	public int getId() {
 		return id;
