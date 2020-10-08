@@ -8,10 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class PetservicesApplication {
 
 	public static void main(String[] args) {
-		
-		ConfigurableApplicationContext context = SpringApplication.run(PetservicesApplication.class, args);
-		MainEjecutar mainEjecutar = context.getBean(MainEjecutar.class);
-		mainEjecutar.ejecutar();
+		SpringApplication.run(PetservicesApplication.class, args);
 	}
 
 }
