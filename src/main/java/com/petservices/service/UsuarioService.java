@@ -24,19 +24,30 @@ public class UsuarioService {
 	public List<Usuario> obtenerUsuarios () {
 		return usuarioDAO.findAll();
 	}
-
+	
+	
+	//Método validar usuario en base de datos y constraseña 
 	public boolean buscarUsuario (Usuario usuario) {
 		
 		boolean resultado = false;
 		String correo = usuario.getCorreo();
+		String password = usuario.getContrasena();
 		List<Usuario> usuarios;
 		usuarios = usuarioDAO.findAll();
 		
 		for(Usuario item : usuarios) {
 			
+			
+			
 			if(correo.equals(item.getCorreo())) {
 				resultado = true;
-			} 
+				break;
+			}
+			
+			if(password.equals(item.getContrasena())) {
+					resultado = true;
+					break;
+				}
 											
 		}
 		
