@@ -43,11 +43,11 @@ public class UsuarioController {
 	@PostMapping("/iniciosesion")
 	public boolean buscarUsuario(@RequestBody Usuario usuario) {
 		
-		boolean resultado;
+		boolean respuesta;
 		
-		resultado = usuarioService.buscarUsuario(usuario);
+		respuesta = usuarioService.validarInfUsuario(usuario);
 		
-		return resultado;
+		return respuesta;
 		
 	}
 
