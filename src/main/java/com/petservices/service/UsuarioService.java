@@ -24,4 +24,23 @@ public class UsuarioService {
 	public List<Usuario> obtenerUsuarios () {
 		return usuarioDAO.findAll();
 	}
+
+	public boolean buscarUsuario (Usuario usuario) {
+		
+		boolean resultado = false;
+		String correo = usuario.getCorreo();
+		List<Usuario> usuarios;
+		usuarios = usuarioDAO.findAll();
+		
+		for(Usuario item : usuarios) {
+			
+			if(correo.equals(item.getCorreo())) {
+				resultado = true;
+			} 
+											
+		}
+		
+		return resultado;
+		 
+	}
 }

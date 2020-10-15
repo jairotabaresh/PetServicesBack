@@ -40,5 +40,18 @@ public class UsuarioController {
 		}
 	}
 	
+	@PostMapping("/iniciosesion")
+	public boolean buscarUsuario(@RequestBody Usuario usuario) {
+		
+		boolean resultado;
+		
+		resultado = usuarioService.buscarUsuario(usuario);
+		
+		return resultado;
+		
+	}
+
+	
+	
 	
 }
