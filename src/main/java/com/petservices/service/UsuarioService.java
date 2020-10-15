@@ -1,6 +1,8 @@
 package com.petservices.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +25,13 @@ public class UsuarioService {
 	
 	public List<Usuario> obtenerUsuarios () {
 		return usuarioDAO.findAll();
+	}
+	
+	public Optional<Usuario> obtenerUsuarioPorId(int id) {
+		return usuarioDAO.findById(id);
+	}
+	
+	public Usuario actualizar (Usuario usuario) {
+		return usuarioDAO.save(usuario);
 	}
 }
