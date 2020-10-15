@@ -41,9 +41,9 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/iniciosesion")
-	public boolean buscarUsuario(@RequestBody Usuario usuario) {
+	public String buscarUsuario(@RequestBody Usuario usuario) {
 		
-		boolean respuesta;
+		String respuesta;
 		
 		respuesta = usuarioService.validarInfUsuario(usuario);
 		
