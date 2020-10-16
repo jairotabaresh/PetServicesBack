@@ -22,11 +22,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping({"/usuarioController"})
 public class UsuarioController {
-
+	
 	@Autowired
 	private UsuarioService usuarioService;
-	@Autowired
-	private UsuarioDAO usuarioDao;
 
 	@GetMapping ("/listar")
 	public List<Usuario> listar () {
@@ -37,8 +35,9 @@ public class UsuarioController {
 	public boolean Crear(@RequestBody Usuario usuario) {
 		System.out.println("Entró en el servicio");
 		System.out.println(usuario);
+		String contrasena = usuarioService.generarPassword();
 		try {
-			usuario.setContrasena("123");
+			usuario.setContrasena(contrasena);
 			usuarioService.guardar(usuario);
 		return true;
 		}catch(Exception e) {
@@ -56,6 +55,5 @@ public class UsuarioController {
 		usuario.setId(id);
 		return usuarioService.actualizar(usuario);
 	}
-
 
 }
