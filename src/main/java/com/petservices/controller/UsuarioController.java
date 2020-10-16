@@ -47,6 +47,7 @@ public class UsuarioController {
 		
 		respuesta = usuarioService.validarInfUsuario(usuario);
 		
+		System.out.println(respuesta);
 		return respuesta;
 		
 	}
