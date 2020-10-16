@@ -1,5 +1,6 @@
 package com.petservices.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,10 +27,16 @@ public class MascotaService {
 	public List<Mascota> obtenerMascotas () {
 		return mascotaDAO.findAll();
 	}
-	
-	public List<Mascota> obtenerMascotaConIdUsuario (int idUsuario) {
-		//TODO: este metodo no se puede usar desde el DAO
-		return null;
+
+	public List<Mascota> obtenerMascotaConIdUsuario(int idUsuario) {
+		List<Mascota> mascotas = new ArrayList<Mascota>();
+		List<Mascota> mascotaBdd =  mascotaDAO.findAll();
+		for(Mascota mascota :  mascotaBdd) {
+			if(mascota.getUsuario().getId() == idUsuario) {
+				mascotas.add(mascota);
+			}
+		}
+		return mascotas;
 	}
 	
 	public Mascota obtenerMascotaConId (int id) {

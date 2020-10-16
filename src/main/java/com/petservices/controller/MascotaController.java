@@ -43,4 +43,19 @@ public class MascotaController {
 			return false;
 		}
 	}
+
+	@GetMapping ("/listarPorUsuario/{id}")
+	public List<Mascota> obtenerMascotaConIdUsuario (@PathVariable("id") int id) {
+		System.out.print(id);
+		List<Mascota> mascotas;
+		try {
+			mascotas = mascotaService.obtenerMascotaConIdUsuario(id);
+			 return mascotas;
+			
+		}
+		catch(Exception e) {
+			mascotas = new ArrayList<Mascota>();
+			return mascotas;
+		}
+	}
 }
