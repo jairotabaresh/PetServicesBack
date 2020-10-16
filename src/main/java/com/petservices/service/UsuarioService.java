@@ -1,6 +1,9 @@
 package com.petservices.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +50,18 @@ public class UsuarioService {
 		}
 		
 		return null;
+	}
 		 
+	public Optional<Usuario> obtenerUsuarioPorId(int id) {
+		return usuarioDAO.findById(id);
+	}
+	
+	public Usuario actualizar (Usuario usuario) {
+		return usuarioDAO.save(usuario);
+	}
+	
+	public String generarPassword() {		
+		String password = RandomStringUtils.randomAscii(10);
+		return password;
 	}
 }
