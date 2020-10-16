@@ -27,9 +27,9 @@ public class UsuarioService {
 	
 	
 	//Método validar correo y constraseña si existe en base de datos 
-	public String validarInfUsuario (Usuario usuario) {
+	public Usuario validarInfUsuario (Usuario usuario) {
 		
-		String respuesta = null;
+		
 		String correo = usuario.getCorreo();
 		String password = usuario.getContrasena();
 		List<Usuario> usuarios;
@@ -39,14 +39,14 @@ public class UsuarioService {
 			
 					
 			if(correo.equals(item.getCorreo()) && password.equals(item.getContrasena())) {
-				respuesta = item.getCorreo();
-				break;
+				return item;
+			
 			}
 			
 														
 		}
 		
-		return respuesta;
+		return null;
 		 
 	}
 }

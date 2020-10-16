@@ -22,6 +22,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	
+	 Usuario usuarioresp = new Usuario();
+	
 	@GetMapping ("/listar")
 	public List<Usuario> listar () {
 		return usuarioService.obtenerUsuarios();
@@ -41,14 +44,13 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/iniciosesion")
-	public String buscarUsuario(@RequestBody Usuario usuario) {
+	public Usuario  buscarUsuario(@RequestBody Usuario usuario) {
 		
-		String respuesta;
+	
 		
-		respuesta = usuarioService.validarInfUsuario(usuario);
+		return usuarioService.validarInfUsuario(usuario);
+				
 		
-		System.out.println(respuesta);
-		return respuesta;
 		
 	}
 
