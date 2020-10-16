@@ -28,6 +28,11 @@ public class MascotaController {
 		return mascotaService.obtenerMascotas();
 	}
 	
+	@GetMapping ("/obtener/{id}")
+	public Mascota obtenerConId (@PathVariable String id) {
+		return mascotaService.obtenerMascotaConId(Integer.valueOf(id));
+	}
+	
 	@PostMapping ("/crear")
 	public boolean crear (@RequestBody Mascota mascota) {
 		try {
@@ -39,7 +44,7 @@ public class MascotaController {
 			return false;
 		}
 	}
-	
+
 	@GetMapping ("/listarPorUsuario/{id}")
 	public List<Mascota> obtenerMascotaConIdUsuario (@PathVariable("id") int id) {
 		System.out.print(id);

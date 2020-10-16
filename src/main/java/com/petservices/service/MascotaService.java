@@ -2,6 +2,8 @@ package com.petservices.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +37,13 @@ public class MascotaService {
 			}
 		}
 		return mascotas;
+	}
+	
+	public Mascota obtenerMascotaConId (int id) {
+		Optional<Mascota> mascota = mascotaDAO.findById(id);
+		if (mascota.isPresent()) {
+			return mascota.get();
+		}
+		return new Mascota ();
 	}
 }
