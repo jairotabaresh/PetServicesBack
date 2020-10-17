@@ -36,7 +36,7 @@ public class MascotaController {
 	@PostMapping ("/crear")
 	public boolean crear (@RequestBody Mascota mascota) {
 		try {
-			System.out.println("Estoy creando una mascota");
+			System.out.println("--Estoy creando una mascota--");
 			mascotaService.guardar(mascota);
 			return true;
 		}
