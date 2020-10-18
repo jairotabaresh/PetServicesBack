@@ -51,18 +51,11 @@ public class UsuarioController {
 	
 	@PostMapping("/iniciosesion")
 	public Usuario  buscarUsuario(@RequestBody Usuario usuario) {
-		
 	
-		
-		return usuarioService.validarInfUsuario(usuario);
+			return usuarioService.validarInfUsuario(usuario);
 				
 		
-		
 	}
-
-	
-	
-	
 
 	@PutMapping(path = {"/editar/{id}"})
 	public Usuario actualizar(@RequestBody Usuario usuario, @PathVariable("id") int id) {

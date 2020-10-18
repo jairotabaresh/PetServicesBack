@@ -33,23 +33,24 @@ public class UsuarioService {
 	public Usuario validarInfUsuario (Usuario usuario) {
 		
 		
-		String correo = usuario.getCorreo();
-		String password = usuario.getContrasena();
 		List<Usuario> usuarios;
 		usuarios = usuarioDAO.findAll();
 		
 		for(Usuario item : usuarios) {
 			
 					
-			if(correo.equals(item.getCorreo()) && password.equals(item.getContrasena())) {
+			if(usuario.getCorreo().equals(item.getCorreo()) && usuario.getContrasena().equals(item.getContrasena())) {
 				return item;
 			
+			} else {
+				
+				usuario.setCorreo(null);
+				usuario.setContrasena(null);
 			}
-			
-														
+																	
 		}
 		
-		return null;
+		return usuario;
 	}
 		 
 	public Optional<Usuario> obtenerUsuarioPorId(int id) {
