@@ -55,4 +55,15 @@ public class UsuarioService {
 		String password = RandomStringUtils.randomAscii(10);
 		return password;
 	}
+	
+	public boolean validarCorreo (Usuario usuario) {
+		String correo = usuario.getCorreo();
+		List<Usuario> usuarios = usuarioDAO.findAll();
+		for(Usuario user : usuarios) {	
+			if(correo.equals(user.getCorreo())) {
+				return true;
+			}										
+		}
+		return false;
+	}
 }

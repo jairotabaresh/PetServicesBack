@@ -59,5 +59,14 @@ public class UsuarioController {
 	public Usuario  buscarUsuario(@RequestBody Usuario usuario) {
 		return usuarioService.validarInfUsuario(usuario);
 	}
+	
+	@PostMapping("/validarCorreo")
+	public boolean buscarCorreo(@RequestBody Usuario usuario) {
+		if (usuarioService.validarCorreo(usuario)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 }
