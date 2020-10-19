@@ -2,7 +2,10 @@ package com.petservices.service;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +23,11 @@ public class CitaService {
 		
 		if(!validarFechaYHora(cita.getFecha(),cita.getHora()))
 		{
-			Estado estado = new Estado();
-			estado.setId(1);
-			cita.setEstado(estado);
+			if(cita.getEstado().getId() == 0) {
+				Estado estado = new Estado();
+				estado.setId(1);
+				cita.setEstado(estado);
+			}
 			citaDAO.save(cita);
 			return true;
 		}else {
@@ -40,8 +45,18 @@ public class CitaService {
 	}
 	
 	public List<Cita> obtenerCitaConIdUsuario (int idUsuario) {
-		//TODO: este metodo no se puede usar desde el DAO
-		return null;
+			List<Cita> citas = new ArrayList<Cita>();
+			List<Cita> citaBD =  citaDAO.findAll();
+			for(Cita cita :  citaBD) {
+				if(cita.getMascota().getUsuario().getId() == idUsuario) {
+					citas.add(cita);
+				}
+			}
+			return citas;
+	}
+	
+	public Optional<Cita> obtenerCitaConId (int id) {
+		return citaDAO.findById(id);
 	}
 	
 	private boolean validarFechaYHora(Date fecha, Time hora) {
