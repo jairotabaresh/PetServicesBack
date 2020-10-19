@@ -49,25 +49,24 @@ public class UsuarioController {
 		return usuarioService.obtenerUsuarioPorId(id);
 	}
 	
-	@PostMapping("/iniciosesion")
-	public Usuario  buscarUsuario(@RequestBody Usuario usuario) {
-		
-	
-		
-		return usuarioService.validarInfUsuario(usuario);
-				
-		
-		
-	}
-
-	
-	
-	
-
 	@PutMapping(path = {"/editar/{id}"})
 	public Usuario actualizar(@RequestBody Usuario usuario, @PathVariable("id") int id) {
 		usuario.setId(id);
 		return usuarioService.actualizar(usuario);
+	}
+
+	@PostMapping("/iniciosesion")
+	public Usuario  buscarUsuario(@RequestBody Usuario usuario) {
+		return usuarioService.validarInfUsuario(usuario);
+	}
+	
+	@PostMapping("/validarCorreo")
+	public boolean buscarCorreo(@RequestBody Usuario usuario) {
+		if (usuarioService.validarCorreo(usuario)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }
