@@ -48,4 +48,14 @@ public class ContactoController {
 			return false;
 		}
 	}
+	
+	@PostMapping("/crearCorreo")
+	public boolean crearCorreo(@RequestBody Correo correo) {
+		try {
+			contactoService.crearCorreo(correo);
+		return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
 }

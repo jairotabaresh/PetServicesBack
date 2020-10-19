@@ -65,7 +65,7 @@ public class UsuarioService {
 		for(Usuario user : usuarios) {	
 			if(correo.equals(user.getCorreo())) {
 				return true;
-			}										
+			}
 		}
 		return false;
 	}

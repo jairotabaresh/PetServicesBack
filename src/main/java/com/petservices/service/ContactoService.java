@@ -52,4 +52,16 @@ public class ContactoService {
 		}
 		return false;
 	}
+	
+	public void crearCorreo(Correo correo) {
+		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+		simpleMailMessage.setTo(correo.getCorreoDestino());
+		simpleMailMessage.setSubject(subject);
+		simpleMailMessage.setText("Bienvenido a PetServices\n" + correo.getNombre() +
+								  "\nSu usuario se ha creado exitosamente\n" +
+								  "\nCorreo: " + correo.getCorreo() + "\n" + 
+								  "Contraseña: " + correo.getContrasena());
+		javaMailSender.send(simpleMailMessage);
+		System.out.println("Enviado");
+	}
 }
