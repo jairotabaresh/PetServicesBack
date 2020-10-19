@@ -38,9 +38,12 @@ public class UsuarioService {
 		for(Usuario item : usuarios) {	
 			if(correo.equals(item.getCorreo()) && password.equals(item.getContrasena())) {
 				return item;
+			} else {
+				usuario.setCorreo(null);
+				usuario.setContrasena(null);
 			}										
 		}
-		return null;
+		return usuario;
 	}
 		 
 	public Optional<Usuario> obtenerUsuarioPorId(int id) {
