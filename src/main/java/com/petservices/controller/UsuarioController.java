@@ -25,7 +25,6 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
-
 	@GetMapping ("/listar")
 	public List<Usuario> listar () {
 		return usuarioService.obtenerUsuarios();
@@ -50,6 +49,21 @@ public class UsuarioController {
 		return usuarioService.obtenerUsuarioPorId(id);
 	}
 	
+	@PostMapping("/iniciosesion")
+	public Usuario  buscarUsuario(@RequestBody Usuario usuario) {
+		
+	
+		
+		return usuarioService.validarInfUsuario(usuario);
+				
+		
+		
+	}
+
+	
+	
+	
+
 	@PutMapping(path = {"/editar/{id}"})
 	public Usuario actualizar(@RequestBody Usuario usuario, @PathVariable("id") int id) {
 		usuario.setId(id);

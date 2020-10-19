@@ -28,6 +28,30 @@ public class UsuarioService {
 		return usuarioDAO.findAll();
 	}
 	
+	
+	//Método validar correo y constraseña si existe en base de datos 
+	public Usuario validarInfUsuario (Usuario usuario) {
+		
+		
+		String correo = usuario.getCorreo();
+		String password = usuario.getContrasena();
+		List<Usuario> usuarios;
+		usuarios = usuarioDAO.findAll();
+		
+		for(Usuario item : usuarios) {
+			
+					
+			if(correo.equals(item.getCorreo()) && password.equals(item.getContrasena())) {
+				return item;
+			
+			}
+			
+														
+		}
+		
+		return null;
+	}
+		 
 	public Optional<Usuario> obtenerUsuarioPorId(int id) {
 		return usuarioDAO.findById(id);
 	}
