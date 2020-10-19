@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.petservices.model.Cita;
-import com.petservices.model.Usuario;
 import com.petservices.service.CitaService;
 
 @CrossOrigin(origins="http://localhost:4200")
