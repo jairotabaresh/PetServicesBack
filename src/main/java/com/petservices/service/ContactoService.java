@@ -58,8 +58,8 @@ public class ContactoService {
 				SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 				simpleMailMessage.setTo(correo);
 				simpleMailMessage.setSubject(subjectNuevo);
-				simpleMailMessage.setText("Bienvenido a PetServices " + item.getNombre() + 
-										  "\nSu usuario se ha creado exitosamente\n" + 
+				simpleMailMessage.setText("Bienvenido a PetServices, " + item.getNombre() + 
+										  "\nSu usuario se ha creado exitosamente.\n" + 
 										  "\nCorreo: " + item.getCorreo() + "\n" + 
 										  "Contraseña: " + item.getContrasena());
 				javaMailSender.send(simpleMailMessage);
