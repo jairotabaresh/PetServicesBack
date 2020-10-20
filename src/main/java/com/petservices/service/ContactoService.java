@@ -18,13 +18,15 @@ public class ContactoService {
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private UsuarioDAO usuarioDAO; 
-	
+    @Autowired
+    private Correo correoDestino;
+    
 	String subject = "Contacto";
 	String subjectenvio = "Recuperación de contraseña";
 	
 	public void enviar(Correo correo) {
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-		simpleMailMessage.setTo(correo.getCorreoDestino());
+		simpleMailMessage.setTo(correoDestino.getDestino());
 		simpleMailMessage.setSubject(subject);
 		simpleMailMessage.setText("Nombre: " + correo.getNombre() + "\n" + 
 								  "Correo: " + correo.getCorreo() + "\n" + 
