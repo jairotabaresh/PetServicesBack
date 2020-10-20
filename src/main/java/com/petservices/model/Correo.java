@@ -6,7 +6,6 @@ public class Correo {
 	private String correo;
 	private String mascota;
 	private String mensaje;
-	private String contrasena;
 	private String correoDestino;
 	
 	
@@ -45,14 +44,6 @@ public class Correo {
 	
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
-	}
-	
-	public String getContrasena() {
-		return contrasena;
-	}
-	
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
 	}
 
 	public String getCorreoDestino() {

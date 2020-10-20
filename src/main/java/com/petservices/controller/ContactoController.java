@@ -49,11 +49,17 @@ public class ContactoController {
 		}
 	}
 	
-	@PostMapping("/crearCorreo")
-	public boolean crearCorreo(@RequestBody Correo correo) {
+	@PostMapping("/correoRegistro")
+	public boolean correoRegistro(@RequestBody String correo) {
 		try {
-			contactoService.crearCorreo(correo);
-		return true;
+			if(contactoService.correoRegistro(correo))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}catch(Exception e) {
 			return false;
 		}
