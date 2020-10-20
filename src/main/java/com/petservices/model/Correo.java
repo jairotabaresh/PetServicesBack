@@ -1,19 +1,18 @@
 package com.petservices.model;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ConfigurationProperties(prefix = "correo")
 public class Correo {
 	
 	private String nombre;
 	private String correo;
 	private String mascota;
 	private String mensaje;
-	private String correoDestino;
+	private String destino;
 	
-	
-	
-	public Correo() {
-		this.correoDestino = "contactuspetservices@gmail.com";
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -46,12 +45,11 @@ public class Correo {
 		this.mensaje = mensaje;
 	}
 
-	public String getCorreoDestino() {
-		return correoDestino;
+	public String getDestino() {
+		return destino;
 	}
 
-	public void setCorreoDestino(String correoDestino) {
-		this.correoDestino = correoDestino;
-	}
-	
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}	
 }

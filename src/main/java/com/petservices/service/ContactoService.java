@@ -17,15 +17,17 @@ public class ContactoService {
 	@Autowired
 	private JavaMailSender javaMailSender;
 	@Autowired
-	private UsuarioDAO usuarioDAO;
-
+	private UsuarioDAO usuarioDAO; 
+    @Autowired
+    private Correo correoDestino;
+    
 	String subject = "Contacto";
 	String subjectenvio = "Recuperación de contraseña";
 	String subjectNuevo = "Bienvenido a PetServices";
 
 	public void enviar(Correo correo) {
 		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-		simpleMailMessage.setTo(correo.getCorreoDestino());
+		simpleMailMessage.setTo(correoDestino.getDestino());
 		simpleMailMessage.setSubject(subject);
 		simpleMailMessage.setText("Nombre: " + correo.getNombre() + "\n" + "Correo: " + correo.getCorreo() + "\n"
 				+ "Mascota: " + correo.getMascota() + "\n" + "Mensaje: " + correo.getMensaje());
